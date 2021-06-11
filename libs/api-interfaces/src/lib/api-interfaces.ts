@@ -1,3 +1,8 @@
 export interface Message {
-  message: string;
+  message: string
+}
+
+export interface Combinations {
+  count: number
+  results: string[]
 }

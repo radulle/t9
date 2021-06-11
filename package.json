@@ -23,7 +23,8 @@
     "update": "nx migrate latest",
     "workspace-generator": "nx workspace-generator",
     "dep-graph": "nx dep-graph",
-    "help": "nx help"
+    "help": "nx help",
+    "prettier:write": "prettier --write \"{apps,libs}/**/*.{ts,tsx}\""
   },
   "private": true,
   "dependencies": {
@@ -33,7 +34,8 @@
     "react": "17.0.2",
     "react-dom": "17.0.2",
     "regenerator-runtime": "0.13.7",
-    "tslib": "^2.0.0"
+    "tslib": "^2.0.0",
+    "wordlist-english": "^1.2.1"
   },
   "devDependencies": {
     "@babel/core": "7.12.13",
@@ -57,6 +59,7 @@
     "@types/node": "14.14.33",
     "@types/react": "17.0.3",
     "@types/react-dom": "17.0.3",
+    "@types/supertest": "^2.0.11",
     "@typescript-eslint/eslint-plugin": "4.19.0",
     "@typescript-eslint/parser": "4.19.0",
     "babel-jest": "26.2.2",
@@ -71,6 +74,8 @@
     "eslint-plugin-react-hooks": "4.2.0",
     "jest": "26.2.2",
     "prettier": "2.2.1",
+    "superagent": "^6.1.0",
+    "supertest": "^6.1.3",
     "ts-jest": "26.5.5",
     "ts-node": "~9.1.1",
     "typescript": "~4.2.4"
