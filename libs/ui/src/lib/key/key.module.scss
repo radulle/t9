@@ -1,0 +1,65 @@
+.key {
+  position: relative;
+  cursor: pointer;
+  user-select: none;
+  border: 0;
+  padding: 0;
+  background: transparent;
+  padding-bottom: 0.5rem;
+  color: var(--color-bg);
+  &:focus {
+    outline: none;
+  }
+  :global(.btn) {
+    position: relative;
+    border-radius: 0.5rem;
+    border-bottom-left-radius: 2rem 1rem;
+    border-bottom-right-radius: 2rem 1rem;
+    background-color: var(--color-button);
+    height: 100%;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    :global(.abc) {
+      min-height: 1.5rem;
+      font-size: 1.25rem;
+    }
+  }
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0.5rem;
+    left: 0;
+    height: calc(100% - 0.5rem);
+    width: 100%;
+    border-radius: 0.5rem;
+    border-bottom-left-radius: 2rem 1rem;
+    border-bottom-right-radius: 2rem 1rem;
+    background-color: var(--color-button-shadow);
+  }
+  &:global(:active > .btn),
+  &:global(.active > .btn) {
+    top: 0.25rem;
+    transition: top 0.1s;
+  }
+
+  @mixin key($background, $shadow) {
+    &:global(::before) {
+      background-color: $shadow;
+    }
+    & :global(.btn) {
+      background-color: $background;
+    }
+  }
+
+  $colors: 'red', 'orange', 'yellow', 'teal', 'navy', 'green', 'blue';
+
+  @each $color in $colors {
+    &:global(.#{$color}) {
+      @include key(var(--color-#{$color}), var(--color-#{$color}-shadow));
+    }
+  }
+}
