@@ -1,16 +1,14 @@
-import * as express from 'express';
-import { Message } from '@t9/api-interfaces';
+import * as express from 'express'
+import { addRootRoutes } from './app/root'
+import { addT9Routes } from './app/t9'
 
-const app = express();
+const app = express()
 
-const greeting: Message = { message: 'Welcome to api!' };
+addRootRoutes(app)
+addT9Routes(app)
 
-app.get('/api', (req, res) => {
-  res.send(greeting);
-});
-
-const port = process.env.port || 3333;
-const server = app.listen(port, () => {
-  console.log('Listening at http://localhost:' + port + '/api');
-});
-server.on('error', console.error);
+const port = process.env.port || 3333
+export const server = app.listen(port, () => {
+  console.log('Listening at http://localhost:' + port + '/api')
+})
+server.on('error', console.error)

@@ -37,7 +37,11 @@
             "main": "apps/t9/src/main.tsx",
             "polyfills": "apps/t9/src/polyfills.ts",
             "tsConfig": "apps/t9/tsconfig.app.json",
-            "assets": ["apps/t9/src/favicon.ico", "apps/t9/src/assets"],
+            "assets": [
+              "apps/t9/src/favicon.ico",
+              "apps/t9/src/manifest.json",
+              "apps/t9/src/assets"
+            ],
             "styles": ["apps/t9/src/styles.scss"],
             "scripts": [],
             "webpackConfig": "@nrwl/react/plugins/webpack"
