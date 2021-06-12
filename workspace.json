@@ -28,6 +28,20 @@
       "sourceRoot": "apps/t9/src",
       "projectType": "application",
       "targets": {
+        "buildprod": {
+          "builder": "@nrwl/workspace:run-commands",
+          "options": {
+            "parallel": false,
+            "commands": [
+              {
+                "command": "nx build --prod"
+              },
+              {
+                "command": "yarn postbuild"
+              }
+            ]
+          }
+        },
         "build": {
           "executor": "@nrwl/web:build",
           "outputs": ["{options.outputPath}"],
