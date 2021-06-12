@@ -1,11 +1,11 @@
-import { getCombinations } from '@t9/combinations'
+import { getWords } from '@t9/combinator'
 import { Express } from 'express'
 
 export function addT9Routes(app: Express) {
   app.get('/api/t9/?', (req, resp) => {
-    resp.send(getCombinations(''))
+    resp.send(getWords(''))
   })
   app.get('/api/t9/:numeric', (req, resp) => {
-    resp.send(getCombinations(req.params.numeric))
+    resp.send(getWords(req.params.numeric))
   })
 }
