@@ -1,28 +1,23 @@
-import React, { useEffect, useState } from 'react';
-import { Message } from '@t9/api-interfaces';
+import { Display, Frame, Keyboard, Suggestions } from '@t9/ui'
+import { useHardwareKeyboard } from './useHardwareKeyboard'
+import { useT9 } from './useT9'
 
 export const App = () => {
-  const [m, setMessage] = useState<Message>({ message: '' });
-
-  useEffect(() => {
-    fetch('/api')
-      .then((r) => r.json())
-      .then(setMessage);
-  }, []);
-
+  const { combinations, text, numeric, handleKey, selectCombination } = useT9()
+  const active = useHardwareKeyboard(handleKey)
   return (
     <>
-      <div style={{ textAlign: 'center' }}>
-        <h1>Welcome to t9!</h1>
-        <img
-          width="450"
-          src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-logo.png"
-          alt="Nx - Smart, Extensible Build Framework"
-        />
-      </div>
-      <div>{m.message}</div>
+      <Frame>
+        <Display>
+          {text}
+          <span>{numeric}</span>
+          <Suggestions
+            select={selectCombination}
+            suggestions={combinations?.results || []}
+          />
+        </Display>
+      </Frame>
+      <Keyboard active={active} handleKey={handleKey} />
     </>
-  );
-};
-
-export default App;
+  )
+}

@@ -1,21 +1,26 @@
-import { cleanup, getByText, render, waitFor } from '@testing-library/react';
-import React from 'react';
-import App from './app';
+import { cleanup, getByText, render, waitFor } from '@testing-library/react'
+import { App } from './app'
+
+const fetch = (global.fetch = jest.fn())
+window.SpeechSynthesisUtterance = jest.fn()
+const fetchMock = (obj: unknown) =>
+  fetch.mockResolvedValue({
+    json: () => obj,
+  })
 
 describe('App', () => {
-  afterEach(() => {
-    delete global['fetch'];
-    cleanup();
-  });
+  beforeEach(() => {
+    jest.clearAllMocks()
+    cleanup()
+  })
 
   it('should render successfully', async () => {
-    global['fetch'] = jest.fn().mockResolvedValueOnce({
-      json: () => ({
-        message: 'my message',
-      }),
-    });
-
-    const { baseElement } = render(<App />);
-    await waitFor(() => getByText(baseElement, 'my message'));
-  });
-});
+    fetchMock({
+      count: 0,
+      results: [],
+    })
+    const { container } = render(<App />)
+    await waitFor(() => getByText(container, /T9\+/))
+    expect(fetch).toBeCalled()
+  })
+})

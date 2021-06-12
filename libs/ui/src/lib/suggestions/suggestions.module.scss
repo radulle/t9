@@ -4,8 +4,9 @@
   padding: 0.25rem;
   right: 0.5rem;
   border: 1px solid;
-  cursor: pointer;
+  background-color: var(--color-display);
   :global(div) {
+    cursor: pointer;
     padding: 0.75rem;
     border-bottom: 1px dashed;
     &:last-of-type {
