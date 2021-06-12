@@ -1,11 +1,5 @@
 import styles from './display.module.scss'
 
-export function Display({ text }: { text: string[] }) {
-  return (
-    <div className={styles.display}>
-      {text.map((word) => (
-        <span>{word}</span>
-      ))}
-    </div>
-  )
-}
+export const Display: React.FC = ({ children }) => (
+  <div className={styles.display}>{children}</div>
+)

@@ -15,7 +15,7 @@ describe('ErrorBoundary', () => {
         <Error />
       </ErrorBoundary>
     )
-    expect(baseElement.innerHTML).toContain(
+    expect(baseElement.textContent).toContain(
       `Something's a bit off please try again.`
     )
   })

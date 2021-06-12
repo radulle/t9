@@ -32,10 +32,16 @@
     "api-interfaces": {
       "tags": []
     },
-    "combinations": {
+    "ui": {
       "tags": []
     },
-    "ui": {
+    "convertor": {
+      "tags": []
+    },
+    "combinator": {
+      "tags": []
+    },
+    "dictionary": {
       "tags": []
     }
   }

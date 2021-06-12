@@ -190,27 +190,6 @@
         }
       }
     },
-    "combinations": {
-      "root": "libs/combinations",
-      "sourceRoot": "libs/combinations/src",
-      "projectType": "library",
-      "targets": {
-        "lint": {
-          "executor": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": ["libs/combinations/**/*.ts"]
-          }
-        },
-        "test": {
-          "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/combinations"],
-          "options": {
-            "jestConfig": "libs/combinations/jest.config.js",
-            "passWithNoTests": true
-          }
-        }
-      }
-    },
     "ui": {
       "root": "libs/ui",
       "sourceRoot": "libs/ui/src",
@@ -227,6 +206,69 @@
           "outputs": ["coverage/libs/ui"],
           "options": {
             "jestConfig": "libs/ui/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "convertor": {
+      "root": "libs/convertor",
+      "sourceRoot": "libs/convertor/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/convertor/**/*.ts"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/convertor"],
+          "options": {
+            "jestConfig": "libs/convertor/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "combinator": {
+      "root": "libs/combinator",
+      "sourceRoot": "libs/combinator/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/combinator/**/*.ts"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/combinator"],
+          "options": {
+            "jestConfig": "libs/combinator/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "dictionary": {
+      "root": "libs/dictionary",
+      "sourceRoot": "libs/dictionary/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/dictionary/**/*.ts"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/dictionary"],
+          "options": {
+            "jestConfig": "libs/dictionary/jest.config.js",
             "passWithNoTests": true
           }
         }

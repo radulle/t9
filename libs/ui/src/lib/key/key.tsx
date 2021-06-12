@@ -33,13 +33,9 @@ const map = (kbd: string) => {
 }
 
 export function Key({ num, abc, active, color, onClick }: KeyProps) {
-  const handleClick = () => {
-    navigator.vibrate?.(33)
-    onClick?.()
-  }
   return (
     <button
-      onClick={handleClick}
+      onClick={onClick}
       className={classNames(styles.key, color, abc.toLowerCase(), { active })}
     >
       <div className="btn">

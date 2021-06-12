@@ -2,7 +2,7 @@ import { Component } from 'react'
 import styles from './error-boundary.module.scss'
 
 function logError(error: Error, info: React.ErrorInfo) {
-  console.error(error, info)
+  return
 }
 type ErrorState = { hasError: boolean; error?: Error }
 

@@ -10,7 +10,7 @@
   transition-timing-function: ease;
   opacity: 1;
   :global(.enter) {
-    grid-row: span 3;
+    grid-row: span 2;
   }
   :global(.space) {
     grid-column: span 3;

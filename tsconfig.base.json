@@ -16,8 +16,10 @@
     "baseUrl": ".",
     "paths": {
       "@t9/api-interfaces": ["libs/api-interfaces/src/index.ts"],
-      "@t9/combinations": ["libs/combinations/src/index.ts"],
-      "@t9/ui": ["libs/ui/src/index.ts"]
+      "@t9/ui": ["libs/ui/src/index.ts"],
+      "@t9/convertor": ["libs/convertor/src/index.ts"],
+      "@t9/combinator": ["libs/combinator/src/index.ts"],
+      "@t9/dictionary": ["libs/dictionary/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
