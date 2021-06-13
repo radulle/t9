@@ -7,13 +7,13 @@ import { usePersistedState } from './usePersistedState'
 const punctuations = ['.', ',', '?', `'`]
 
 export function useT9(utterance = new SpeechSynthesisUtterance()) {
-  const [autoSuggest, setAutoSuggest] = usePersistedState<boolean>('auto', true)
+  const [autoSelect, setAutoSelect] = usePersistedState<boolean>('auto', true)
   const [text, setText] = useState<string>('')
   const [numeric, setNumeric] = useState<string>('')
   const [combinations, setCombinations] = useState<Combinations>()
 
   useEffect(() => {
-    environment.getCombinations(numeric, setCombinations)
+    if (numeric) environment.getCombinations(numeric, setCombinations)
   }, [numeric])
 
   const pushWord = (word: string) => {
@@ -22,7 +22,7 @@ export function useT9(utterance = new SpeechSynthesisUtterance()) {
       const capitalize =
         !prev ||
         prev.trim() === '' ||
-        punctuations.includes(prev.trim().slice(-1))
+        ['.', '?'].includes(prev.trim().slice(-1))
       return prev
         .trim()
         .concat(
@@ -36,7 +36,7 @@ export function useT9(utterance = new SpeechSynthesisUtterance()) {
   }
 
   const topSuggestion = () =>
-    autoSuggest && combinations?.count ? combinations.results[0] : numeric
+    autoSelect && combinations?.count ? combinations.results[0] : numeric
 
   const mum = () => {
     if (speechSynthesis.speaking) speechSynthesis.cancel()
@@ -46,7 +46,7 @@ export function useT9(utterance = new SpeechSynthesisUtterance()) {
     mum()
     utterance.text =
       text +
-      (autoSuggest && combinations?.count ? combinations.results[0] : numeric)
+      (autoSelect && combinations?.count ? combinations.results[0] : numeric)
     speechSynthesis.speak(utterance)
   }
 
@@ -55,8 +55,12 @@ export function useT9(utterance = new SpeechSynthesisUtterance()) {
       pushWord(topSuggestion())
       return
     }
-    if (!numeric.length && key === '1') {
-      setCombinations({ count: 4, results: punctuations })
+    if (key === '1') {
+      if (autoSelect && numeric.length) {
+        pushWord(topSuggestion())
+        setCombinations({ count: 4, results: punctuations })
+      }
+      if (!numeric.length) setCombinations({ count: 4, results: punctuations })
       return
     }
     if (/\d/.test(key)) {
@@ -97,7 +101,7 @@ export function useT9(utterance = new SpeechSynthesisUtterance()) {
     numeric,
     handleKey,
     pushWord,
-    autoSuggest,
-    toggleAutoSuggest: () => setAutoSuggest((prev) => !prev),
+    autoSelect,
+    toggleAutoSelect: () => setAutoSelect((prev) => !prev),
   }
 }

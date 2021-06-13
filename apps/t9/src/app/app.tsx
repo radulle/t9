@@ -9,8 +9,8 @@ export const App = () => {
     numeric,
     handleKey,
     pushWord,
-    autoSuggest: on,
-    toggleAutoSuggest: toggle,
+    autoSelect: on,
+    toggleAutoSelect: toggle,
   } = useT9()
   const active = useHardwareKeyboard(handleKey)
   return (
