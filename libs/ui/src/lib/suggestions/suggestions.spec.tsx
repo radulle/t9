@@ -7,21 +7,19 @@ describe('Suggestions', () => {
     jest.clearAllMocks()
   })
   it('should render null with required props without suggestions', () => {
-    const { container } = render(
-      <Suggestions suggestions={[]} select={() => fn} />
-    )
+    const { container } = render(<Suggestions suggestions={[]} select={fn} />)
     console.info(container.innerHTML)
     expect(container.innerHTML).toBeFalsy()
   })
   it('should render suggestions', () => {
     const { getByText } = render(
-      <Suggestions suggestions={['aardvark']} select={() => fn} />
+      <Suggestions suggestions={['aardvark']} select={fn} />
     )
     expect(getByText('aardvark')).toBeTruthy()
   })
   it('should invoke select on click', () => {
     const { getByText } = render(
-      <Suggestions suggestions={['aardvark']} select={() => fn} />
+      <Suggestions suggestions={['aardvark']} select={fn} />
     )
     expect(fn).not.toBeCalled()
     const node = getByText('aardvark')

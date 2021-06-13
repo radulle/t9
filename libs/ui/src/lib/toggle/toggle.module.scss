@@ -1,0 +1,31 @@
+.toggle {
+  background: transparent;
+  border: unset;
+  color: var(--color-bg);
+  padding: unset;
+  display: flex;
+  &:global(.on) {
+    > div {
+      background: rgb(255 255 255 / 30%);
+      justify-content: flex-end;
+    }
+  }
+  > div {
+    width: 2rem;
+    position: relative;
+    border-radius: 100rem;
+    height: 1rem;
+    margin-left: 0.25rem;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    background: rgb(255 255 255 / 20%);
+    > div {
+      height: 0.75rem;
+      width: 0.75rem;
+      background: rgb(255 255 255 / 60%);
+      border-radius: 50%;
+      margin: 0.125rem;
+    }
+  }
+}

@@ -2,7 +2,7 @@ import style from './suggestions.module.scss'
 
 export interface SuggestionsProps {
   suggestions: string[]
-  select: (val: string) => () => void
+  select: (val: string) => void
   max?: number
 }
 
@@ -14,7 +14,7 @@ export const Suggestions = ({
   suggestions.length ? (
     <div className={style.suggestions}>
       {suggestions.slice(0, max).map((w) => (
-        <div onClick={select(w)} key={w}>
+        <div onClick={() => select(w)} key={w}>
           {w}
         </div>
       ))}

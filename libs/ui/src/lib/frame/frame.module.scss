@@ -8,11 +8,16 @@
   flex-direction: column;
   overflow: hidden;
   :global(.title) {
+    display: flex;
     color: var(--color-bg);
     margin-bottom: 0.25rem;
     font-size: 1.25rem;
     text-align: left;
     font-style: italic;
     font-weight: 600;
+    align-items: center;
+    > span {
+      flex: 1;
+    }
   }
 }

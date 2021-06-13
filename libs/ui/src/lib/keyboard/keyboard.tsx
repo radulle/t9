@@ -7,7 +7,7 @@ export interface KeyboardProps {
 }
 
 const keys = [
-  { key: '1', num: '1', abc: '' },
+  { key: '1', num: '1', abc: `.,?'` },
   { key: '2', num: '2', abc: 'abc' },
   { key: '3', num: '3', abc: 'def' },
   { key: 'Delete', num: '', abc: 'Delete', color: 'red' },

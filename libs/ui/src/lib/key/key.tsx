@@ -2,7 +2,7 @@ import classNames from 'classnames'
 import styles from './key.module.scss'
 
 export interface KeyProps {
-  num: string
+  num?: string
   abc: string
   onClick?: () => void
   active?: boolean
@@ -12,7 +12,7 @@ export interface KeyProps {
 const map = (kbd: string) => {
   switch (kbd) {
     case 'Enter':
-      return '⏎'
+      return '🕪'
     case 'ArrowLeft':
       return '←'
     case 'ArrowRight':
@@ -39,7 +39,7 @@ export function Key({ num, abc, active, color, onClick }: KeyProps) {
       className={classNames(styles.key, color, abc.toLowerCase(), { active })}
     >
       <div className="btn">
-        <div className="num">{num}</div>
+        {num && <div className="num">{num}</div>}
         <div className="abc">{map(abc)}</div>
       </div>
     </button>

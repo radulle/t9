@@ -9,4 +9,20 @@
   font-size: 2rem;
   font-family: Calculator;
   position: relative;
+  white-space: pre-wrap;
+  :global(span.numeric) {
+    &::after {
+      content: '|';
+      animation: fade 2s ease infinite;
+    }
+    @keyframes fade {
+      0%,
+      100% {
+        opacity: 0;
+      }
+      50% {
+        opacity: 1;
+      }
+    }
+  }
 }
