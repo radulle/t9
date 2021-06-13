@@ -1,7 +1,7 @@
 // This file can be replaced during build by using the `fileReplacements` array.
 // When building for production, this file is replaced with `environment.prod.ts`.
 
-import { fetchCombinations } from '../app/getCombinations'
+import { fetchCombinations } from '../app/hooks/getCombinations'
 
 export const environment = {
   production: false,

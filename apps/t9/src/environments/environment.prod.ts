@@ -1,4 +1,4 @@
-import { computeCombinations } from '../app/getCombinations'
+import { computeCombinations } from '../app/hooks/getCombinations'
 
 export const environment = {
   production: true,

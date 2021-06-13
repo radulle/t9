@@ -2,7 +2,7 @@ import { ErrorBoundary } from '@t9/ui'
 import { StrictMode } from 'react'
 import * as ReactDOM from 'react-dom'
 import { App } from './app/app'
-import { environment } from './environments/environment.prod'
+import { environment } from './environments/environment'
 
 ReactDOM.render(
   <StrictMode>

@@ -1,18 +1,26 @@
 import { Display, Frame, Keyboard, Suggestions } from '@t9/ui'
-import { useHardwareKeyboard } from './useHardwareKeyboard'
-import { useT9 } from './useT9'
+import { useHardwareKeyboard } from './hooks/useHardwareKeyboard'
+import { useT9 } from './hooks/useT9'
 
 export const App = () => {
-  const { combinations, text, numeric, handleKey, selectCombination } = useT9()
+  const {
+    combinations,
+    text,
+    numeric,
+    handleKey,
+    pushWord,
+    autoSuggest: on,
+    toggleAutoSuggest: toggle,
+  } = useT9()
   const active = useHardwareKeyboard(handleKey)
   return (
     <>
-      <Frame>
+      <Frame toggles={[{ text: 'auto', on, toggle }]}>
         <Display>
-          {text}
-          <span>{numeric}</span>
+          {text.trimLeft()}
+          <span className="numeric">{numeric}</span>
           <Suggestions
-            select={selectCombination}
+            select={pushWord}
             suggestions={combinations?.results || []}
           />
         </Display>
