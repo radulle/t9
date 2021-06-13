@@ -1,12 +1,13 @@
 .toggle {
-  background: transparent;
+  background-color: transparent;
   border: unset;
   color: var(--color-bg);
   padding: unset;
   display: flex;
+  cursor: pointer;
   &:global(.on) {
     > div {
-      background: rgb(255 255 255 / 30%);
+      background-color: var(--color-lighten30);
       justify-content: flex-end;
     }
   }
@@ -19,11 +20,11 @@
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    background: rgb(255 255 255 / 20%);
+    background-color: var(--color-lighten20);
     > div {
       height: 0.75rem;
       width: 0.75rem;
-      background: rgb(255 255 255 / 60%);
+      background-color: var(--color-lighten60);
       border-radius: 50%;
       margin: 0.125rem;
     }
