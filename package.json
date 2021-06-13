@@ -37,8 +37,7 @@
     "react-dom": "17.0.2",
     "react-router-dom": "5.2.0",
     "regenerator-runtime": "0.13.7",
-    "tslib": "^2.0.0",
-    "wordlist-english": "^1.2.1"
+    "tslib": "^2.0.0"
   },
   "devDependencies": {
     "@babel/core": "7.12.13",
