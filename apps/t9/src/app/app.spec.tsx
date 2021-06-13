@@ -21,6 +21,5 @@ describe('App', () => {
     })
     const { container } = render(<App />)
     await waitFor(() => getByText(container, /T9\+/))
-    expect(fetch).toBeCalled()
   })
 })
