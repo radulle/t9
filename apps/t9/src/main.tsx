@@ -13,7 +13,11 @@ ReactDOM.render(
   document.getElementById('root')
 )
 
-if (environment.sw && 'serviceWorker' in navigator) {
+if (
+  environment.sw &&
+  window.location.hostname !== 'localhost' &&
+  'serviceWorker' in navigator
+) {
   window.addEventListener('load', () => {
     navigator.serviceWorker.register('/sw.js')
   })
