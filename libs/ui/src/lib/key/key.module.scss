@@ -7,8 +7,18 @@
   background: transparent;
   padding-bottom: 0.5rem;
   color: var(--color-bg);
+  &:global(.backspace) {
+    :global(.btn .abc) {
+      font-weight: 900;
+      font-size: 1.6rem;
+    }
+  }
   &:focus {
     outline: none;
+  }
+  :global(svg) {
+    width: 2rem;
+    fill: var(--color-bg);
   }
   :global(.btn) {
     position: relative;
